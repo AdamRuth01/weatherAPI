@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecasts</title>
+</head>
+<body>
+<h1>Weather Forecasts</h1>
+<a href="/weather/add">Add New Weather</a>
+<div th:if="${not #lists.isEmpty(forecasts)}">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Description</th>
+            <th>Temperature</th>
+            <th>Wind Speed (m/s)</th>
+            <th>Humidity</th>
+            <th>Feels Like</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="forecast : ${forecasts}">
+            <td th:text="${forecast.id}"></td>
+            <td th:text="${forecast.city}"></td>
+            <td th:text="${forecast.country}"></td>
+            <td th:text="${forecast.description}"></td>
+            <td th:text="${forecast.temprature}"></td>
+            <td th:text="${forecast.wind_M_S}"></td>
+            <td th:text="${forecast.humidity}"></td>
+            <td th:text="${forecast.feelsLike}"></td>
+            <td>
+                <a th:href="@{/weather/update/{id}(id=${forecast.id})}">Edit</a> |
+                <a th:href="@{/weather/delete/{id}(id=${forecast.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

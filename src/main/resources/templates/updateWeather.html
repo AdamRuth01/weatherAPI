@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Weather Data</title>
+</head>
+<body>
+<h1>Update Weather Data</h1>
+
+<form action="/weather/update/{id}" method="post" th:object="${weather}">
+
+    <label for="Id">:City</label>
+    <input type="text" id="id" th:field="*{id}"><br><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" th:field="*{city}"><br><br>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" th:field="*{country}"><br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" th:field="*{description}"><br><br>
+
+    <label for="temprature">Temperature:</label>
+    <input type="number" step="0.1" id="temprature" th:field="*{temprature}"><br><br>
+
+    <label for="wind_M_S">Wind Speed (m/s):</label>
+    <input type="number" step="0.1" id="wind_M_S" th:field="*{wind_M_S}"><br><br>
+
+    <label for="humidity">Humidity:</label>
+    <input type="number" step="0.1" id="humidity" th:field="*{humidity}"><br><br>
+
+    <label for="feelsLike">Feels Like:</label>
+    <input type="text" id="feelsLike" th:field="*{feelsLike}"><br><br>
+
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
